@@ -10,7 +10,7 @@
   <% @properties.each do |prop| %>
     <tr class="row">
       <td><%= prop.name %></td>
-      <td><%= prop.rent.to_s(:delimited) %>円</td>
+      <td><%= prop.rent.to_s(:delimited) if prop.rent %>円</td>
       <td><%= prop.address %></td>
       <td><%= prop.age %>年</td>
       <td><%= prop.remark %></td>

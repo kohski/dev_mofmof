@@ -1,3 +1,13 @@
+<% if @property.errors.any? %>
+  <p>
+    <%= @property.errors.full_messages.length %>件のエラー
+  </p>
+  <ul>
+    <%= @property.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%=form_for @property do |f| %>
   <h2>物件登録</h2>
   <div>
