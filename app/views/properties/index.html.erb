@@ -1,0 +1,24 @@
+<h1>物件一覧</h1>
+<table>
+  <tr>
+    <th class="name">物件名</th>
+    <th class="rent">賃料</th>
+    <th class="address">住所</th>
+    <th class="age">築年数</th>
+    <th class="remark">備考</th>
+   </tr>
+  <% @properties.each do |prop| %>
+    <tr class="row">
+      <td><%= prop.name %></td>
+      <td><%= prop.rent.to_s(:delimited) if prop.rent %>円</td>
+      <td><%= prop.address %></td>
+      <td><%= prop.age %>年</td>
+      <td><%= prop.remark %></td>
+      <td class="show"><%= link_to "詳細",property_path(prop.id)%></td>
+      <td><%= link_to "編集",edit_property_path(prop.id)%></td>
+      <td><%= link_to "削除",property_path(prop.id),method: :delete%></td>
+    </tr>
+<% end %>
+</table>
+
+<%= link_to '物件を登録する', new_property_path %>
